@@ -1,0 +1,80 @@
+From 146919d75a44dbdc7269b5ccabe1ef7f3019e60b Mon Sep 17 00:00:00 2001
+From: Victor Morales <victor.morales@intel.com>
+Date: Wed, 10 Jun 2015 11:31:41 -0500
+Subject: [PATCH] Add shell --profile option to tirgger osprofiler from CLI
+
+Currently only way to trigger osprofiler (tracing) is to use
+python-keystoneclient as and python lib. This patch add new option
+--profile that will do this from CLI.
+So if you have installed osprofiler lib. And you type
+keystone --profile SECRET_KEY user-lsit
+At the end of output there will be message with <trace_id>
+to plot nice HTML graphs use command:
+osprofiler trace show <trace_id> --html --out result.html
+Related patch:
+(main patch in keystone) https://review.openstack.org/#/c/103368/
+
+Signed-off-by: Victor Morales <victor.morales@intel.com>
+---
+ keystoneclient/shell.py | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+diff --git a/keystoneclient/shell.py b/keystoneclient/shell.py
+index 1221e57..cba6b4f 100644
+--- a/keystoneclient/shell.py
++++ b/keystoneclient/shell.py
+@@ -26,6 +26,7 @@ import sys
+ import warnings
+ 
+ from oslo_utils import encodeutils
++from oslo_utils import importutils
+ import six
+ 
+ import keystoneclient
+@@ -38,6 +39,9 @@ from keystoneclient import utils
+ from keystoneclient.v2_0 import shell as shell_v2_0
+ 
+ 
++osprofiler_profiler = importutils.try_import("osprofiler.profiler")
++
++
+ def env(*vars, **kwargs):
+     """Search for the first defined of possibly many env vars
+ 
+@@ -202,6 +206,16 @@ class OpenStackIdentityShell(object):
+                                  "is useful in mitigating process or "
+                                  "network delays. Default is %s seconds." %
+                                  access.STALE_TOKEN_DURATION)
++        if osprofiler_profiler:
++            parser.add_argument('--profile',
++                                metavar='HMAC_KEY',
++                                help='HMAC key to use for encrypting context '
++                                'data for performance profiling of operation. '
++                                'This key should be the value of HMAC key '
++                                'configured in osprofiler middleware in '
++                                'Keystone. Without key the profiling will not '
++                                'be triggered even if osprofiler is enabled '
++                                'on server side.')
+ 
+         session.Session.register_cli_options(parser)
+ 
+@@ -393,7 +407,16 @@ class OpenStackIdentityShell(object):
+                 timeout=args.timeout)
+ 
+         try:
++            profile = osprofiler_profiler and options.profile
++            if profile:
++                osprofiler_profiler.init(options.profile)
++
+             args.func(self.cs, args)
++            if profile:
++                trace_id = osprofiler_profiler.get().get_base_id()
++                print("Trace ID: %s" % trace_id)
++                print("To display trace use next command:\n"
++                      "osprofiler trace show --html %s " % trace_id)
+         except exc.Unauthorized:
+             raise exc.CommandError("Invalid OpenStack Identity credentials.")
+         except exc.AuthorizationFailure:
+-- 
+2.1.0
+
