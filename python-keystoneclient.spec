@@ -4,7 +4,7 @@
 #
 Name     : python-keystoneclient
 Version  : 1.7.1
-Release  : 21
+Release  : 22
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-1.7.1.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-1.7.1.tar.gz
 Summary  : Client Library for OpenStack Identity
@@ -18,7 +18,6 @@ BuildRequires : Pygments-python
 BuildRequires : Sphinx-python
 BuildRequires : WebOb-python
 BuildRequires : coverage-python
-BuildRequires : debtcollector-python
 BuildRequires : discover-python
 BuildRequires : docutils-python
 BuildRequires : extras
@@ -37,7 +36,6 @@ BuildRequires : lxml-python
 BuildRequires : markupsafe-python
 BuildRequires : mccabe-python
 BuildRequires : memcached
-BuildRequires : monotonic-python
 BuildRequires : mox3-python
 BuildRequires : msgpack-python-python
 BuildRequires : netaddr-python
@@ -85,7 +83,7 @@ BuildRequires : tox
 BuildRequires : traceback2-python
 BuildRequires : unittest2-python
 BuildRequires : virtualenv
-BuildRequires : wrapt-python
+Patch1: 0001-Fix-OrderedDict-mutated-during-iteration-bug.patch
 
 %description
 Python bindings to the OpenStack Identity API (Keystone)
@@ -102,6 +100,13 @@ bin components for the python-keystoneclient package.
 %package python
 Summary: python components for the python-keystoneclient package.
 Group: Default
+Requires: Babel-python
+Requires: iso8601-python
+Requires: oslo.i18n-python
+Requires: oslo.serialization-python
+Requires: oslo.utils-python
+Requires: requests-python
+Requires: six-python
 
 %description python
 python components for the python-keystoneclient package.
@@ -109,6 +114,7 @@ python components for the python-keystoneclient package.
 
 %prep
 %setup -q -n python-keystoneclient-1.7.1
+%patch1 -p1
 
 %build
 python2 setup.py build -b py2
@@ -118,7 +124,7 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-python2 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
 %install
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot}
