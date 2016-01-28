@@ -1,6 +1,29 @@
 CHANGES
 =======
 
+2.1.1
+-----
+
+* Revert "Support `truncated` flag returned by keystone"
+* Support `truncated` flag returned by keystone
+* Updated from global requirements
+* Make tests run against original client and sessions
+* Seperate Client base test class
+* move hacking to tests folder
+* remove venv bits from tools
+* Add include_subtree to role_list_assignments call
+* Updated from global requirements
+* remove the default arguments "{}"
+* Updated from global requirements
+* remove oslo-incubator's memorycache
+* WebOb not needed after auth_token removal
+* Remove keystoneclient.middleware
+* Updated from global requirements
+* Updated from global requirements
+* Put py34 first in the env order of tox
+* Accept v2 params to v3 service create
+* Delete python bytecode before every test run
+
 2.0.0
 -----
 
