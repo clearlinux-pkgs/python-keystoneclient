@@ -1,14 +1,37 @@
 CHANGES
 =======
 
+2.1.2
+-----
+
+
 2.1.1
 -----
 
 * Revert "Support `truncated` flag returned by keystone"
+* Revert "Change default endpoint for Keystone v3 to public"
+
+2.1.0
+-----
+
+* add release notes for ksc 2.1.0
+* Updated from global requirements
+* Updated from global requirements
+* Fix for the deprecated library function
+* Implements base classes for functional tests
+* Wrong usage of "a/an"
+* Remove "deprecated" internal method
+* Cleanup release note
+* remove keystoneclient.apiclient.exceptions
 * Support `truncated` flag returned by keystone
+* Change default endpoint for Keystone v3 to public
 * Updated from global requirements
 * Make tests run against original client and sessions
 * Seperate Client base test class
+* Removes MANIFEST.in as it is not needed explicitely by PBR
+* Replace textwrap with fast standard code
+* Docstring: Mark optional parameter as optional
+* Fix Resource.__eq__ mismatch semantics of object equal
 * move hacking to tests folder
 * remove venv bits from tools
 * Add include_subtree to role_list_assignments call
@@ -17,6 +40,7 @@ CHANGES
 * Updated from global requirements
 * remove oslo-incubator's memorycache
 * WebOb not needed after auth_token removal
+* Deprecated tox -downloadcache option removed
 * Remove keystoneclient.middleware
 * Updated from global requirements
 * Updated from global requirements
