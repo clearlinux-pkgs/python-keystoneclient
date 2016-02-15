@@ -4,7 +4,7 @@
 #
 Name     : python-keystoneclient
 Version  : 2.1.2
-Release  : 30
+Release  : 31
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.1.2.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.1.2.tar.gz
 Summary  : Client Library for OpenStack Identity
