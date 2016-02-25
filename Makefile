@@ -1,5 +1,5 @@
 PKG_NAME := python-keystoneclient
-URL := http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.1.2.tar.gz
+URL := http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.2.0.tar.gz
 ARCHIVES :=
 
 include ../common/Makefile.common

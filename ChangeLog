@@ -1,6 +1,33 @@
 CHANGES
 =======
 
+2.2.0
+-----
+
+* add release notes for deprecated auth bits
+* Updated from global requirements
+* Updated from global requirements
+* Make pep8 *the* linting interface
+* Handle exception on UnicodeDecodError in logging of request
+* Updated from global requirements
+* Deprecate adapter
+* Deprecate auth plugins from keystoneclient
+* Deprecate Session
+* Remove python 2.5 workaround
+* Update keyring requirements
+* Update translation setup
+* Bandit profile updates
+* Missing defaults in the create() method in the v2 ServiceManager
+* Remove Babel from requirements.txt
+* use positional library instead of utils
+* Replace TestResponse with requests_mock
+* Use positional library instead of local code
+* Remove argparse from requirements
+* Adds an option to include names in role assignment lists
+* Updated from global requirements
+* Remove bandit tox environment
+* Mark password/secret options as secret
+
 2.1.2
 -----
 
@@ -10,6 +37,7 @@ CHANGES
 
 * Revert "Support `truncated` flag returned by keystone"
 * Revert "Change default endpoint for Keystone v3 to public"
+* Address hacking check H405
 
 2.1.0
 -----
@@ -29,6 +57,7 @@ CHANGES
 * Make tests run against original client and sessions
 * Seperate Client base test class
 * Removes MANIFEST.in as it is not needed explicitely by PBR
+* Deprecate the baseclient.Client
 * Replace textwrap with fast standard code
 * Docstring: Mark optional parameter as optional
 * Fix Resource.__eq__ mismatch semantics of object equal
