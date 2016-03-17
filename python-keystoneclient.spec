@@ -4,7 +4,7 @@
 #
 Name     : python-keystoneclient
 Version  : 2.2.0
-Release  : 32
+Release  : 33
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.2.0.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.2.0.tar.gz
 Summary  : Client Library for OpenStack Identity
@@ -13,23 +13,25 @@ License  : Apache-2.0
 Requires: python-keystoneclient-bin
 Requires: python-keystoneclient-python
 BuildRequires : Babel-python
+BuildRequires : GitPython-python
 BuildRequires : Jinja2-python
 BuildRequires : Pygments-python
 BuildRequires : Sphinx-python
 BuildRequires : WebOb-python
+BuildRequires : bandit-python
 BuildRequires : coverage-python
 BuildRequires : discover-python
 BuildRequires : docutils-python
 BuildRequires : extras
 BuildRequires : extras-python
 BuildRequires : fixtures-python
+BuildRequires : flake8-docstrings-python
 BuildRequires : flake8-python
 BuildRequires : hacking-python
 BuildRequires : httplib2-python
 BuildRequires : iso8601-python
 BuildRequires : jsonschema-python
 BuildRequires : keyring-python
-BuildRequires : keystoneauth1-python
 BuildRequires : libmemcached
 BuildRequires : linecache2-python
 BuildRequires : lxml-python
@@ -60,6 +62,7 @@ BuildRequires : py-python
 BuildRequires : pycrypto-python
 BuildRequires : pyflakes-python
 BuildRequires : pymemcache
+BuildRequires : pyrsistent-python
 BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python-memcached
@@ -68,6 +71,7 @@ BuildRequires : python-mock
 BuildRequires : python-subunit
 BuildRequires : python3-dev
 BuildRequires : pytz-python
+BuildRequires : reno-python
 BuildRequires : requests-mock-python
 BuildRequires : requests-python
 BuildRequires : setuptools
@@ -84,6 +88,8 @@ BuildRequires : tox
 BuildRequires : traceback2-python
 BuildRequires : unittest2-python
 BuildRequires : virtualenv
+Patch1: cve-2015-7546.nopatch
+Patch2: 0001-don-t-ask-for-hard-flake8-docstrings-0.2.1.post1-ver.patch
 
 %description
 Python bindings to the OpenStack Identity API (Keystone)
@@ -101,7 +107,6 @@ bin components for the python-keystoneclient package.
 Summary: python components for the python-keystoneclient package.
 Group: Default
 Requires: iso8601-python
-Requires: keystoneauth1-python
 Requires: oslo.i18n-python
 Requires: oslo.serialization-python
 Requires: oslo.utils-python
@@ -115,6 +120,7 @@ python components for the python-keystoneclient package.
 
 %prep
 %setup -q -n python-keystoneclient-2.2.0
+%patch2 -p1
 
 %build
 python2 setup.py build -b py2

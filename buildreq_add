@@ -63,3 +63,7 @@ libmemcached
 memcached
 pymemcache
 python-memcached
+positional-python
+bandit-python
+reno-python
+flake8-docstrings-python
