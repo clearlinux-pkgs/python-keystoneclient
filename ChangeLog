@@ -1,6 +1,21 @@
 CHANGES
 =======
 
+2.3.1
+-----
+
+* Revert "Support `truncated` flag returned by identity service"
+
+2.3.0
+-----
+
+* Updated from global requirements
+* Support `truncated` flag returned by identity service
+* Updated from global requirements
+* Support creation of domain specific roles
+* Add back a bandit tox job
+* Implied Roles
+
 2.2.0
 -----
 
