@@ -4,7 +4,7 @@
 #
 Name     : python-keystoneclient
 Version  : 2.3.1
-Release  : 35
+Release  : 36
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.1.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.1.tar.gz
 Summary  : Client Library for OpenStack Identity
@@ -13,9 +13,11 @@ License  : Apache-2.0
 Requires: python-keystoneclient-bin
 Requires: python-keystoneclient-python
 BuildRequires : GitPython-python
+BuildRequires : Jinja2
 BuildRequires : Sphinx-python
 BuildRequires : bandit-python
 BuildRequires : coverage-python
+BuildRequires : docutils
 BuildRequires : extras
 BuildRequires : extras-python
 BuildRequires : flake8-docstrings-python
