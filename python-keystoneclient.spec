@@ -4,7 +4,7 @@
 #
 Name     : python-keystoneclient
 Version  : 3.6.0
-Release  : 40
+Release  : 41
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.6.0.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.6.0.tar.gz
 Summary  : Client Library for OpenStack Identity
