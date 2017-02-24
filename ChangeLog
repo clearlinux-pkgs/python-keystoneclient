@@ -1,15 +1,163 @@
 CHANGES
 =======
 
-2.3.2
+3.6.0
 -----
 
-* Only log application/json content type
-* Do not log binary data during request
-* X-Serivce-Token should be hashed in the log
-* List system dependencies for running common tests
 * Updated from global requirements
-* Update .gitreview for stable/mitaka
+* Updated from global requirements
+* Updated from global requirements
+* TrivialFix: Fixed typo in some files
+* Import module instead of object
+* Updated from global requirements
+* Fix non-ascii attributes
+* Updated from global requirements
+* Correct output for Implied Roles
+* Revert "Add auth functional tests"
+* Import module instead of object
+* standardize release note page ordering
+* Update reno for stable/newton
+* Use AUTH_INTERFACE object from keystoneauth
+* Use fixtures from keystoneauth
+
+3.5.0
+-----
+
+* Minor docstring fix in mappings.py
+* Updated from global requirements
+* Follow up patch for Improve docs for v3 policies
+* Follow up patch for Improve docs for v3 services
+* Follow up patch for Improve docs for v3 domains
+* Follow up patch for Add ec2 functional tests
+* Add auth functional tests
+* Reuse Domain and Project resouce definitions
+* Improve docs for v3 tokens
+* Fix no content return type doc
+* Follow up patch for Improve docs for v3 ec2
+* Add ec2 functional tests
+* Improve docs for v3 auth
+* Improve docs for v3 ec2
+* Add credential functional tests
+* Move other-requirements.txt to bindep.txt
+* Add __ne__ built-in function
+* Remove deprecated 'data' credential argument
+* Improve docs for v3 credentials
+* Add role functional tests
+* Add Python 3.5 classifier
+* Follow up patch for Improve docs for v3 roles
+* Updated from global requirements
+* Improve docs for v3 roles
+* Correct test_implied_roles
+
+3.4.0
+-----
+
+* Updated from global requirements
+* Do not send user ids as payload
+* Updated from global requirements
+* Add endpoint functional tests
+* Improve docs for v3 endpoints
+
+3.3.0
+-----
+
+* Add region functional tests
+* Add project functional tests
+* Use assertEqual() instead of assertDictEqual()
+* Updated from global requirements
+* Improve implied-role functional tests
+* Fix other-requirements.txt for deb based distros
+* Updated from global requirements
+* Remove unused LOG
+* Updated from global requirements
+* Improve docs for v3 regions
+* Add policy functional tests
+* Improve docs for v3 policies
+* Add service functional tests
+* Improve docs for v3 services
+* Use the adapter instead of the client in tests
+* Remove print in tests.functional.v3.test_implied_roles
+
+3.2.0
+-----
+
+* Updated from global requirements
+* Update other-requirements.txt for Xenial
+* Update README to comply with Identity V3
+* List system dependencies for running common tests
+* Follow up patch for Improve docs for v3 projects
+* Updated from global requirements
+* Improve docs for v3 projects
+* Add group functional tests
+* Updated from global requirements
+* Improve docs for v3 groups
+* Follow up patch for add domain functional tests
+* Add domain functional tests
+* Improve docs for v3 domains
+* Updated from global requirements
+* Use /v3/auth/projects and /v3/auth/domains
+* Handle EmptyCatalog exception in list federated projects
+* Updated from global requirements
+* PEP257: Ignore D203 because it was deprecated
+* Updated from global requirements
+* import warnings in doc/source/conf.py
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Updated from global requirements
+* Remove unused iso8601 requirement
+* map fixtures to keystoneauth
+
+3.1.0
+-----
+
+* Updated from global requirements
+* Update the home-page with developer documentation
+* Add users functional tests
+* Improve docs for v3 users
+* Trivial: ignore openstack/common in flake8 exclude list
+* Updated from global requirements
+* Updated from global requirements
+* Fixing D105 PEP257
+* Fixing D200 PEP257 violation
+* Fixing D202 and D203 PEP257 violation
+* Fixing D204, D205, and D207 PEP257 violation
+* Fixing D208 PEP257 violation
+* httpclient: remove unused debug kwargs
+* Fixing D211 PEP257 violation
+* Fixing D301 PEP257 violation
+* Add federation related tests
+* [Trivial] Remove unnecessary executable privilge of unit test file
+* Replace tempest-lib with tempest.lib
+* Fix identity_providers docstring
+* Updated from global requirements
+* Fallback if Git repository is absent
+* Fix D400 PEP257 violation
+* Fix D401 PEP257 violation
+* Updated example in README
+* Removing bandit.yaml in favor of defaults
+* Updated from global requirements
+* Updated from global requirements
+
+3.0.0
+-----
+
+* Updated from global requirements
+* Allow seeing full token response when debug enabled
+* Enhance functional class to provide default info
+* Remove keystone bash completion scripts for Keystone
+* Remove doc references to the keystone CLI
+* remove CLI from keystoneclient
+* remove oslo-incubator apiclient
+* Update reno for stable/mitaka
+* Fix reference to ClientException
+* Update Client examples to use sessions
+* Change tests to pass session to Client
+* Update developer docs for keystoneauth session
+* Correct test running instructions
+* Document session as an argument to v3.Client
+* Link to AccessInfoV3 returned from get_raw_token_from_identity_service
+* Tests stop using deprecated HTTPClient.get()
 
 2.3.1
 -----
@@ -23,6 +171,7 @@ CHANGES
 * Support `truncated` flag returned by identity service
 * Updated from global requirements
 * Support creation of domain specific roles
+* Get revocation list with only audit ids
 * Add back a bandit tox job
 * Implied Roles
 
