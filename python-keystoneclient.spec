@@ -6,7 +6,7 @@
 #
 Name     : python-keystoneclient
 Version  : 2.3.2
-Release  : 44
+Release  : 46
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
 Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz.asc
@@ -15,10 +15,23 @@ Group    : Development/Tools
 License  : Apache-2.0
 Requires: python-keystoneclient-bin
 Requires: python-keystoneclient-python
+Requires: debtcollector
+Requires: iso8601
+Requires: keystoneauth1
+Requires: oslo.config
+Requires: oslo.i18n
+Requires: oslo.serialization
+Requires: oslo.utils
+Requires: pbr
+Requires: positional
+Requires: requests
+Requires: six
+Requires: stevedore
 BuildRequires : GitPython-python
 BuildRequires : Jinja2
 BuildRequires : Sphinx-python
 BuildRequires : bandit-python
+BuildRequires : configparser-python
 BuildRequires : coverage-python
 BuildRequires : docutils
 BuildRequires : extras
@@ -81,14 +94,6 @@ bin components for the python-keystoneclient package.
 %package python
 Summary: python components for the python-keystoneclient package.
 Group: Default
-Requires: keystoneauth1-python
-Requires: oslo.config
-Requires: oslo.serialization-python
-Requires: oslo.utils-python
-Requires: positional-python
-Requires: prettytable
-Requires: requests-python
-Requires: stevedore
 
 %description python
 python components for the python-keystoneclient package.
@@ -100,7 +105,7 @@ python components for the python-keystoneclient package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1486753052
+export SOURCE_DATE_EPOCH=1488233468
 python2 setup.py build -b py2
 
 %install
