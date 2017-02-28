@@ -6,7 +6,7 @@
 #
 Name     : python-keystoneclient
 Version  : 2.3.2
-Release  : 46
+Release  : 48
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
 Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz.asc
@@ -105,12 +105,15 @@ python components for the python-keystoneclient package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1488233468
+export SOURCE_DATE_EPOCH=1488306002
 python2 setup.py build -b py2
+python3 setup.py build -b py3
 
 %install
+export SOURCE_DATE_EPOCH=1488306002
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
