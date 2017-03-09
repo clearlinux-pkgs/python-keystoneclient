@@ -13,7 +13,7 @@ oauthlib-python
 oslo.config
 oslo.serialization-python
 oslosphinx-python
-oslotest-python
+oslotest
 oslo.utils-python
 pbr
 pip
