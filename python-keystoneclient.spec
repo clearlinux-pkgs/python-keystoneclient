@@ -6,7 +6,7 @@
 #
 Name     : python-keystoneclient
 Version  : 2.3.2
-Release  : 49
+Release  : 50
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
 Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz.asc
@@ -27,54 +27,12 @@ Requires: positional
 Requires: requests
 Requires: six
 Requires: stevedore
-BuildRequires : GitPython-python
-BuildRequires : Jinja2
-BuildRequires : Sphinx-python
-BuildRequires : bandit-python
 BuildRequires : configparser-python
-BuildRequires : coverage-python
-BuildRequires : docutils
-BuildRequires : extras
-BuildRequires : extras-python
-BuildRequires : flake8-docstrings-python
-BuildRequires : hacking
-BuildRequires : keyring-python
-BuildRequires : keystoneauth1-python
-BuildRequires : lxml-python
-BuildRequires : msgpack-python-python
-BuildRequires : oauthlib-python
-BuildRequires : oslo.config
-BuildRequires : oslo.serialization-python
-BuildRequires : oslo.utils-python
-BuildRequires : oslosphinx-python
-BuildRequires : oslotest
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : pluggy
-BuildRequires : positional-python
-BuildRequires : prettytable
-BuildRequires : py-python
-BuildRequires : pyrsistent-python
-BuildRequires : pytest
 BuildRequires : python-dev
-BuildRequires : python-mimeparse-python
-BuildRequires : python-mock-python
 BuildRequires : python3-dev
-BuildRequires : reno-python
-BuildRequires : requests-mock-python
-BuildRequires : requests-python
 BuildRequires : setuptools
-BuildRequires : stevedore
-BuildRequires : tempest-lib-python
-BuildRequires : testrepository-python
-BuildRequires : testresources
-BuildRequires : testscenarios
-BuildRequires : testtools
-BuildRequires : testtools-python
-BuildRequires : tox
-BuildRequires : traceback2-python
-BuildRequires : unittest2-python
-BuildRequires : virtualenv
 Patch1: cve-2015-7546.nopatch
 Patch2: 0001-don-t-ask-for-hard-flake8-docstrings-0.2.1.post1-ver.patch
 
@@ -104,12 +62,12 @@ python components for the python-keystoneclient package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489019044
+export SOURCE_DATE_EPOCH=1489283442
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1489019044
+export SOURCE_DATE_EPOCH=1489283442
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
