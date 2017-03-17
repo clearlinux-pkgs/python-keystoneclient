@@ -5,18 +5,16 @@
 # Source0 file verified with key 0xB9069B1335700CDC (infra-root@openstack.org)
 #
 Name     : python-keystoneclient
-Version  : 2.3.2
-Release  : 50
-URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
-Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz
-Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-2.3.2.tar.gz.asc
+Version  : 3.10.0
+Release  : 51
+URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.10.0.tar.gz
+Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.10.0.tar.gz
+Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.10.0.tar.gz.asc
 Summary  : Client Library for OpenStack Identity
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: python-keystoneclient-bin
 Requires: python-keystoneclient-python
 Requires: debtcollector
-Requires: iso8601
 Requires: keystoneauth1
 Requires: oslo.config
 Requires: oslo.i18n
@@ -27,7 +25,6 @@ Requires: positional
 Requires: requests
 Requires: six
 Requires: stevedore
-BuildRequires : configparser-python
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
@@ -37,16 +34,11 @@ Patch1: cve-2015-7546.nopatch
 Patch2: 0001-don-t-ask-for-hard-flake8-docstrings-0.2.1.post1-ver.patch
 
 %description
-Python bindings to the OpenStack Identity API (Keystone)
-========================================================
-
-%package bin
-Summary: bin components for the python-keystoneclient package.
-Group: Binaries
-
-%description bin
-bin components for the python-keystoneclient package.
-
+========================
+Team and repository tags
+========================
+.. image:: http://governance.openstack.org/badges/python-keystoneclient.svg
+:target: http://governance.openstack.org/reference/tags/index.html
 
 %package python
 Summary: python components for the python-keystoneclient package.
@@ -57,17 +49,17 @@ python components for the python-keystoneclient package.
 
 
 %prep
-%setup -q -n python-keystoneclient-2.3.2
+%setup -q -n python-keystoneclient-3.10.0
 %patch2 -p1
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489283442
+export SOURCE_DATE_EPOCH=1489785759
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1489283442
+export SOURCE_DATE_EPOCH=1489785759
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -75,10 +67,7 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 %files
 %defattr(-,root,root,-)
 
-%files bin
-%defattr(-,root,root,-)
-/usr/bin/keystone
-
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
