@@ -6,7 +6,7 @@
 #
 Name     : python-keystoneclient
 Version  : 3.10.0
-Release  : 52
+Release  : 53
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.10.0.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.10.0.tar.gz
 Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.10.0.tar.gz.asc
