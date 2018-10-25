@@ -1,9 +1,27 @@
 CHANGES
 =======
 
+3.18.0
+------
+
+* Don't quote {posargs} in tox.ini
+* Deprecate region enabled parameter
+* Import legacy keystoneclient-dsvm-functional
+* Use templates for cover and lower-constraints
+* add lib-forward-testing-python3 test job
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* fix misspelling of 'default'
+* Update reno for stable/rocky
+* refactor the getid method in keystoneclient/base.py
+* Switch to stestr
+* Add release note link in README
+
 3.17.0
 ------
 
+* Update IdentityProviderManager docstring
 * Add support for project-specific limits
 * Add support for registered limits
 * Fix python3 test compat
@@ -16,6 +34,8 @@ CHANGES
 ------
 
 * add lower-constraints job
+* Add return-request-id-to-caller function(v3)
+* Add Response class to return request-id to caller
 * Updated from global requirements
 * Updated from global requirements
 * Update links in README
