@@ -6,7 +6,7 @@
 #
 Name     : python-keystoneclient
 Version  : 3.18.0
-Release  : 55
+Release  : 56
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz
 Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz.asc
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540479127
+export SOURCE_DATE_EPOCH=1541272335
 export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
