@@ -6,7 +6,7 @@
 #
 Name     : python-keystoneclient
 Version  : 3.18.0
-Release  : 57
+Release  : 58
 URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz
 Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz
 Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz.asc
@@ -16,18 +16,13 @@ License  : Apache-2.0
 Requires: python-keystoneclient-license = %{version}-%{release}
 Requires: python-keystoneclient-python = %{version}-%{release}
 Requires: python-keystoneclient-python3 = %{version}-%{release}
-Requires: Sphinx
 Requires: debtcollector
-Requires: fixtures
 Requires: keystoneauth1
-Requires: lxml
-Requires: openstackdocstheme
 Requires: oslo.config
 Requires: oslo.i18n
 Requires: oslo.serialization
 Requires: oslo.utils
 Requires: pbr
-Requires: reno
 Requires: requests
 Requires: six
 Requires: stevedore
@@ -37,8 +32,11 @@ Patch1: cve-2015-7546.nopatch
 Patch2: 0001-don-t-ask-for-hard-flake8-docstrings-0.2.1.post1-ver.patch
 
 %description
+========================
 Team and repository tags
-        ========================
+========================
+.. image:: https://governance.openstack.org/tc/badges/python-keystoneclient.svg
+:target: https://governance.openstack.org/tc/reference/tags/index.html
 
 %package license
 Summary: license components for the python-keystoneclient package.
@@ -75,11 +73,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541272335
+export SOURCE_DATE_EPOCH=1551029305
 export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
