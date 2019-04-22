@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x1A541148054E9E38 (infra-root@openstack.org)
 #
 Name     : python-keystoneclient
-Version  : 3.18.0
-Release  : 59
-URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz
-Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz
-Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.18.0.tar.gz.asc
+Version  : 3.19.0
+Release  : 60
+URL      : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.19.0.tar.gz
+Source0  : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.19.0.tar.gz
+Source99 : http://tarballs.openstack.org/python-keystoneclient/python-keystoneclient-3.19.0.tar.gz.asc
 Summary  : Client Library for OpenStack Identity
 Group    : Development/Tools
 License  : Apache-2.0
@@ -29,7 +29,6 @@ Requires: stevedore
 BuildRequires : buildreq-distutils3
 BuildRequires : pbr
 Patch1: cve-2015-7546.nopatch
-Patch2: 0001-don-t-ask-for-hard-flake8-docstrings-0.2.1.post1-ver.patch
 
 %description
 ========================
@@ -65,23 +64,23 @@ python3 components for the python-keystoneclient package.
 
 
 %prep
-%setup -q -n python-keystoneclient-3.18.0
-%patch2 -p1
+%setup -q -n python-keystoneclient-3.19.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551029305
-export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export SOURCE_DATE_EPOCH=1555948295
+export CFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong "
+export FCFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong "
+export FFLAGS="$CFLAGS -fcf-protection=full -fstack-protector-strong "
+export CXXFLAGS="$CXXFLAGS -fcf-protection=full -fstack-protector-strong "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-keystoneclient
 cp LICENSE %{buildroot}/usr/share/package-licenses/python-keystoneclient/LICENSE
