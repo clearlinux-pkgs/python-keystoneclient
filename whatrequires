@@ -2,6 +2,10 @@
 cinder
 glance_store
 horizon
+keystone
 keystonemiddleware
+python-manilaclient
+python-neutronclient
 python-openstackclient
 python-swiftclient
+sahara
